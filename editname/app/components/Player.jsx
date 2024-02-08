@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 export default function Player ({player1}) {
-
+  const [newPlayerName, setNewPlayerName] = useState(player1)
   const [isEditing, setIsEditing] = useState(false)
 
   
@@ -12,11 +12,15 @@ export default function Player ({player1}) {
     console.log('isEditing: ', isEditing)  
   }
 
-  let playerName = <p>{player1}</p>
+  function handleNameChange (event) {
+    setNewPlayerName(event.target.value)
+  }
+
+  let playerName = <p>{newPlayerName}</p>
   let btnCaption = 'edit'
 
   if(isEditing) {
-    playerName = <input type='text' required value={player1}/>
+    playerName = <input type='text' required value={newPlayerName} onChange={handleNameChange} />
     btnCaption = 'save'
   }
 
