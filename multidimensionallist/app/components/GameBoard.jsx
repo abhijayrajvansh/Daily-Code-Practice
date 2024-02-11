@@ -11,11 +11,17 @@ const initialGameBoard = [
 export default function Board () {
 
   const [gameBoard, setGameBoard] = useState(initialGameBoard);
+  const [playerTurn, setPlayerTurn] = useState('X');
+  
 
   function handleBoxClick (rowIndex, colIndex) {
+    // changes player turn after every click
+    setPlayerTurn((prevTurn) => prevTurn === 'X' ? 'O' : 'X')
+    
+    // updates the value in the board
     setGameBoard((prevBoard) => {
       const updatedBoard = [...prevBoard.map(innerArray => [...innerArray])];
-      updatedBoard[rowIndex][colIndex] = 'X';
+      updatedBoard[rowIndex][colIndex] = playerTurn;
       return updatedBoard;
     });
   }
