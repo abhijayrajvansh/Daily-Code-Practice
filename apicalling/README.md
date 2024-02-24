@@ -1,1 +1,1 @@
-API_URL = https://api.weatherapi.com/v1/current.json?key=3d3dd43aa77149eaa8d15206232512&q=london&aqi=no
+const API_URL = 'https://api.weatherapi.com/v1/current.json?key=3d3dd43aa77149eaa8d15206232512&q=london&aqi=no'
